@@ -375,8 +375,9 @@ img {
 }
 
 .customers .list-item {
-  flex-basis: calc((100% - 5 * 24px) / 6);
+  width: calc((100% - 120px) / 6);
   height: 88px;
+  margin: 0;
 }
 
 .section-customers .section-title {
