@@ -374,13 +374,13 @@ img {
   gap: 24px;
 }
 
-.section-customers .section-title {
-  line-height: 1.1;
+.customers .list-item {
+  width: calc((100% - 5 * 24px) / 6);
+  height: 88px;
 }
 
-.customers.list .list-item {
-  width: calc((100% - 120px) / 6);
-  height: 88px;
+.section-customers .section-title {
+  line-height: 1.1;
 }
 
 .customers.link {
