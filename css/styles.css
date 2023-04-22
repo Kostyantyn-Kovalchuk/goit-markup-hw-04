@@ -5,7 +5,10 @@
   --secondary-background-color: #e7e9fc;
   --brand-color: #4d5ae5;
   --hover-color: #404bbf;
+  --secondary-hover-color: #31d0aa;
   --light-mode: #f4f4fd;
+  --hero-background: #2e2f42;
+  --customers-section-color: #8e8f99;
 }
 
 /* Common properties */
@@ -43,20 +46,22 @@ body {
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .visually-hidden {
-position: absolute;
-white-space: nowrap;
-width: 1px;
-height: 1px;
-overflow: hidden;
-border: 0;
-padding: 0;
-clip: rect(0 0 0 0);
-clip-path: inset(50%);
-margin: -1px;
-}"
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
 
 /* Header */
 
@@ -127,12 +132,25 @@ margin: -1px;
 
 /* Hero */
 
-.hero-section {
+.section-hero {
   margin-bottom: 0;
   padding-top: 188px;
   padding-bottom: 188px;
 
-  background-color: var(--secondary-text-color);
+  height: 600px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url('../images/background-office.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--hero-background);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .hero-title {
@@ -218,9 +236,10 @@ margin: -1px;
 
 /* Features */
 
-.features-section {
+.section-features {
   padding-top: 120px;
   padding-bottom: 120px;
+  background-color: var(--main-background-color);
 }
 
 .features {
@@ -244,13 +263,30 @@ margin: -1px;
   flex-basis: calc((100% - 3 * 24px) / 4);
 }
 
-/* Samples */
+.icon-field {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-bottom: 8px;
 
-.samples-section {
-  padding-bottom: 120px;
+  background: var(--light-mode);
+  border-radius: 4px;
 }
 
-.samples-section .list-item {
+.features-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Samples */
+
+.section-samples {
+  padding-bottom: 120px;
+  background-color: var(--main-background-color);
+}
+
+.section-samples .list-item {
   flex-basis: calc((100% - 2 * 24px) / 3);
 }
 
@@ -262,7 +298,7 @@ margin: -1px;
 
 /* Team */
 
-.team-section {
+.section-team {
   padding-top: 120px;
   padding-bottom: 120px;
   background-color: var(--light-mode);
@@ -276,6 +312,11 @@ margin: -1px;
 .cards .list-item {
   flex-basis: calc((100% - 3 * 24px) / 4);
 
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
   background-color: var(--main-background-color);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -287,26 +328,96 @@ margin: -1px;
   margin-bottom: 8px;
 }
 
-.section-subtitle.position {
+.section-description.position {
+  margin-bottom: 8px;
   text-align: center;
 }
 
-.card-text {
+.card-information {
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 16px;
   padding-right: 16px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
+.section-team .social-list.list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.section-team .social-list.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+}
+
+.section-team .social-list.link:hover,
+.section-team .social-list.link:focus {
+  background-color: var(--hover-color);
+}
+
+.section-team .social-list-icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--light-mode);
+}
+
+/* Customers section */
+
+.section-customers {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: var(--main-background-color);
+}
+
+.customers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customers .list-item {
+  flex-basis: calc((100% - 5 * 24px) / 6);
+  gap: 24px;
+}
+
+.customers.link {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 31px;
+  padding-right: 31px;
+
+  border: 1px solid var(--customers-section-color);
+  border-radius: 4px;
+}
+
+.customers.link:hover,
+.customers.link:focus {
+  border: 1px solid var(--hover-color);
+  border-radius: 4px;
+}
+
+.customers-icon {
+  width: 104px;
+  height: 56px;
+
+  fill: var(--customers-section-color);
+}
+.customers-icon:hover,
+.customers-icon:focus {
+  fill: var(--hover-color);
+}
 /* Portfolio section */
 
-.products-section {
+.section-products {
   padding-top: 96px;
   padding-bottom: 120px;
+  background-color: var(--main-background-color);
 }
 
 .filter {
@@ -347,6 +458,11 @@ margin: -1px;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border: 1px solid transparent;
+}
+
+.products-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .products-item .section-subtitle {
@@ -402,4 +518,53 @@ margin: -1px;
   font-size: 16px;
   line-height: 1.5;
   color: var(--light-mode);
+}
+
+.footer .container {
+  display: flex;
+}
+
+.company-information-container {
+  margin-right: 120px;
+}
+
+.footer .social-list {
+  display: flex;
+}
+
+.social-list-subheading {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--main-background-color);
+}
+
+.footer .social-list.list {
+  display: flex;
+  gap: 16px;
+}
+
+.footer .social-list.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: var(--brand-color);
+}
+
+.footer .social-list-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--light-mode);
+}
+
+.footer .social-list.link:hover {
+  background-color: var(--secondary-hover-color);
 }
