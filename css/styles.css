@@ -37,6 +37,7 @@ body {
 .link {
   text-decoration: none;
 }
+
 .site-nav .link:not(logo):hover,
 .site-nav .link:not(logo):focus,
 .contacts .link:hover,
